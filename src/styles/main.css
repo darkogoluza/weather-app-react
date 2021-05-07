@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.search {
+  background-color: gray;
+  height: 60px;
+}
+
+.current-weather {
+  width: 100vw;
+  height: 400px;
+  background-color: blue;
+}
+
+.current-weather__header {
+  font-size: 0.75em;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.current-weather__content {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.current-weather__content__location {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.current-weather__content__location span {
+  font-size: 0.75em;
+}
+
+.current-weather__content__tempreture {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.current-weather__content__tempreture h1 {
+  font-size: 5em;
+}
+
+.current-weather__content__condition {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.current-weather__content__more-info {
+  margin-top: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 0.75em;
+}
+
+.current-weather__content__more-info h4 {
+  margin: 0rem 1rem;
+  color: silver;
+}
+
+.current-weather--day {
+  background: url("../assets/day.jpg") center top no-repeat;
+  background-size: cover;
+  color: #fffaf1;
+}
+
+.current-weather--night {
+  background: url("../assets/night.jpg") center center no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+.day-forecast {
+  width: 100vw;
+  height: 150px;
+  background-color: red;
+}
+
+.day-forecast__list {
+  width: 90%;
+  margin: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[12];
+      grid-template-columns: repeat(12, 1fr);
+}
+/*# sourceMappingURL=main.css.map */

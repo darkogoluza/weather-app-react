@@ -1,0 +1,13 @@
+.day-forecast {
+  width: 100vw;
+  height: 150px;
+  background-color: red;
+
+  &__list {
+    width: 90%;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
+}

@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Search from "./components/Search";
+import CurrentWeather from "./components/CurrentWeather";
+import DayForecastList from "./components/DayForecastList";
+import WeekForecast from "./components/WeekForecast";
+import { useGlobalContext } from "./context";
 
 function App() {
+  const { dummyData } = useGlobalContext();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <Search />
+      <CurrentWeather {...dummyData.current} {...dummyData.location} />
+      <DayForecastList
+        forecastHouers={dummyData.forecast.forecastday[0].hour}
+      />
+      <WeekForecast />
+    </main>
   );
 }
 
