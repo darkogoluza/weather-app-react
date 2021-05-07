@@ -8,11 +8,11 @@
 
 .search {
   background-color: gray;
-  height: 60px;
+  height: 50px;
 }
 
 .current-weather {
-  width: 100vw;
+  width: 100%;
   height: 400px;
   background-color: blue;
 }
@@ -90,17 +90,107 @@
 }
 
 .day-forecast {
-  width: 100vw;
-  height: 150px;
+  width: 100%;
+  height: 450px;
   background-color: red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .day-forecast__list {
   width: 90%;
   margin: auto;
+  gap: 1rem 0.5rem;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[12];
       grid-template-columns: repeat(12, 1fr);
+}
+
+.day-forecast-item {
+  background-color: gray;
+  border-radius: 5px;
+  height: 180px;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0.25rem;
+}
+
+.day-forecast-item__icon {
+  width: 42px;
+}
+
+.day-forecast-item__temp {
+  font-size: 1.25em;
+}
+
+.day-forecast-item__condition {
+  font-size: 0.75em;
+  text-align: center;
+}
+
+.day-forecast-item__icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 0.5rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.day-forecast-item__icons__rain {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 0.85rem;
+}
+
+.day-forecast-item__icons__rain img {
+  height: 12px;
+}
+
+.day-forecast-item__icons__wind {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 0.85rem;
+}
+
+.day-forecast-item__icons__wind img {
+  height: 12px;
+}
+
+.day-forecast-item__time {
+  font-size: 0.6em;
 }
 /*# sourceMappingURL=main.css.map */

@@ -42,8 +42,8 @@ const CurrentWeather = ({
 
         <div className="current-weather__content__more-info">
           <h4>Humidity: {humidity}%</h4>
-          <h4>Pressure: {pressure_mb}mb</h4>
-          <h4>Wind Speed: {wind_kph}km/h</h4>
+          <h4>Pressure: {pressure_mb} mb</h4>
+          <h4>Wind Speed: {wind_kph} km/h</h4>
           <h4>Wind Direction: {wind_dir}</h4>
           <h4>UV: {getUVRange(uv)}</h4>
         </div>
