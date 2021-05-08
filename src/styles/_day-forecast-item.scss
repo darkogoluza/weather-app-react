@@ -1,6 +1,5 @@
 .day-forecast-item {
-  background-color: gray;
-  border-radius: 5px;
+  background-color: transparent;
   height: 180px;
 
   list-style: none;
@@ -9,6 +8,16 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.25rem;
+
+  color: #393e46;
+  border-radius: 10px;
+
+  transition: 0.2s all ease-in-out;
+
+  &:hover {
+    transform: scale(1.15);
+    background-color: #aad8d3;
+  }
 
   &__icon {
     width: 42px;

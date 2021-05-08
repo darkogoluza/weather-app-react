@@ -91,8 +91,9 @@
 
 .day-forecast {
   width: 100%;
-  height: 450px;
-  background-color: red;
+  height: 500px;
+  padding: 1rem;
+  background-color: #eeeeee;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -108,6 +109,11 @@
           justify-content: center;
 }
 
+.day-forecast__date {
+  color: #393e46;
+  font-size: 1.5em;
+}
+
 .day-forecast__list {
   width: 90%;
   margin: auto;
@@ -119,8 +125,7 @@
 }
 
 .day-forecast-item {
-  background-color: gray;
-  border-radius: 5px;
+  background-color: transparent;
   height: 180px;
   list-style: none;
   display: -webkit-box;
@@ -137,6 +142,16 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 0.25rem;
+  color: #393e46;
+  border-radius: 10px;
+  -webkit-transition: 0.2s all ease-in-out;
+  transition: 0.2s all ease-in-out;
+}
+
+.day-forecast-item:hover {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+  background-color: #aad8d3;
 }
 
 .day-forecast-item__icon {
@@ -200,8 +215,8 @@
 
 .week-forecast {
   width: 100%;
-  height: 200px;
-  background-color: blue;
+  height: 250px;
+  background-color: #d4d4d4;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -228,22 +243,43 @@
 }
 
 .week-forecast-item {
-  height: 150px;
+  height: 200px;
   width: 150px;
-  background-color: gray;
+  background-color: transparent;
+  padding: 0.5rem;
   border-radius: 10px;
   border: none;
   outline: none;
   cursor: pointer;
+  color: #393e46;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  position: relative;
 }
 
-.week-forecast-item:hover {
+.week-forecast-item:hover:not(.week-forecast-item--active) {
   -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
+}
+
+.week-forecast-item--active {
+  border: 2px solid #00adb5;
+}
+
+.week-forecast-item__triangle {
+  position: absolute;
+  width: 16px;
+  top: 0;
+  -webkit-transform: translate(100%, -50%);
+          transform: translate(100%, -50%);
+  rotate: -90deg;
+  opacity: 0;
+}
+
+.week-forecast-item__triangle--active {
+  opacity: 1;
 }
 
 .week-forecast-item__temp span {

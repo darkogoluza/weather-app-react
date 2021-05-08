@@ -1,7 +1,8 @@
 .week-forecast-item {
-  height: 150px;
+  height: 200px;
   width: 150px;
-  background-color: gray;
+  background-color: transparent;
+  padding: 0.5rem;
 
   border-radius: 10px;
 
@@ -10,11 +11,31 @@
 
   cursor: pointer;
 
-  transition: all 0.2s ease-in-out;
+  color: #393e46;
 
-  &:hover {
+  transition: all 0.2s ease-in-out;
+  position: relative;
+
+  &:hover:not(.week-forecast-item--active) {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     transform: scale(1.05);
+  }
+
+  &--active {
+    border: 2px solid #00adb5;
+  }
+
+  &__triangle {
+    position: absolute;
+    width: 16px;
+    top: 0;
+    transform: translate(100%, -50%);
+    rotate: -90deg;
+    opacity: 0;
+
+    &--active {
+      opacity: 1;
+    }
   }
 
   &__temp {

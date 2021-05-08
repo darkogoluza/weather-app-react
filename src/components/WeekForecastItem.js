@@ -1,6 +1,7 @@
 import React from "react";
 import { parse, format } from "date-fns";
 import { useGlobalContext } from "../context";
+import triangleIcon from "../assets/triangle.png";
 
 const WeekForecastItem = ({
   date,
@@ -9,7 +10,7 @@ const WeekForecastItem = ({
   mintemp_c,
   index,
 }) => {
-  const { handleWeekItemClick } = useGlobalContext();
+  const { handleWeekItemClick, currentDayForecastIndex } = useGlobalContext();
 
   let oldDate = new Date();
   oldDate = parse(date, "yyyy-MM-dd", oldDate);
@@ -18,11 +19,21 @@ const WeekForecastItem = ({
 
   return (
     <button
-      className="week-forecast-item"
+      className={`week-forecast-item ${
+        currentDayForecastIndex === index && "week-forecast-item--active"
+      }`}
       onClick={() => {
         handleWeekItemClick(index);
       }}
     >
+      <img
+        src={triangleIcon}
+        alt="tiangle"
+        className={`week-forecast-item__triangle ${
+          currentDayForecastIndex === index &&
+          "week-forecast-item__triangle--active"
+        }`}
+      />
       <h3 className="week-forecast-item__date">{formatedDate}</h3>
       <img
         src={icon}

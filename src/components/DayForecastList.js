@@ -11,7 +11,7 @@ const DayForecastList = ({ forecastHouers }) => {
 
   return (
     <section className="day-forecast">
-      <h1>{formatedDate}</h1>
+      <h1 className="day-forecast__date">{formatedDate}</h1>
       <ul className="day-forecast__list">
         {forecastHouers.map((item) => {
           return <DayForecastItem key={uuid()} {...item} />;
