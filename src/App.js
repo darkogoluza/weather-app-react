@@ -2,19 +2,21 @@ import React from "react";
 import Search from "./components/Search";
 import CurrentWeather from "./components/CurrentWeather";
 import DayForecastList from "./components/DayForecastList";
-import WeekForecast from "./components/WeekForecast";
+import WeekForecastList from "./components/WeekForecastList";
 import { useGlobalContext } from "./context";
 
 function App() {
-  const { dummyData } = useGlobalContext();
+  const { dummyData, currentDayForecastIndex } = useGlobalContext();
   return (
     <main>
       <Search />
       <CurrentWeather {...dummyData.current} {...dummyData.location} />
       <DayForecastList
-        forecastHouers={dummyData.forecast.forecastday[0].hour}
+        forecastHouers={
+          dummyData.forecast.forecastday[currentDayForecastIndex].hour
+        }
       />
-      <WeekForecast />
+      <WeekForecastList forecastWeek={dummyData.forecast.forecastday} />
     </main>
   );
 }

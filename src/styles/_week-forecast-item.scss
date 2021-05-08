@@ -1,0 +1,25 @@
+.week-forecast-item {
+  height: 150px;
+  width: 150px;
+  background-color: gray;
+
+  border-radius: 10px;
+
+  border: none;
+  outline: none;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+  }
+
+  &__temp {
+    span {
+      font-size: 0.75em;
+    }
+  }
+}
