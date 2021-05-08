@@ -2,14 +2,18 @@ import React from "react";
 import rainDropIcon from "../assets/raindrop.png";
 import windIcon from "../assets/wind.png";
 import { animated, Spring } from "react-spring";
+import { useGlobalContext } from "../context";
 
 const DayForecastItem = ({
   time,
   condition: { text: conditionText, icon },
   temp_c,
+  temp_f,
   chance_of_rain,
   wind_kph,
 }) => {
+  const { isCelsius } = useGlobalContext();
+
   return (
     <Spring
       from={{ opacity: 0, y: 25 }}
@@ -24,7 +28,9 @@ const DayForecastItem = ({
               alt={conditionText}
               className="day-forecast-item__icon"
             />
-            <h1 className="day-forecast-item__temp">{temp_c}°C</h1>
+            <h1 className="day-forecast-item__temp">
+              {isCelsius ? `${temp_c}°C` : `${temp_f}°F`}
+            </h1>
             <h2 className="day-forecast-item__condition">{conditionText}</h2>
             <div className="day-forecast-item__icons">
               <div className="day-forecast-item__icons__rain">

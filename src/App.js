@@ -3,20 +3,33 @@ import Search from "./components/Search";
 import CurrentWeather from "./components/CurrentWeather";
 import DayForecastList from "./components/DayForecastList";
 import WeekForecastList from "./components/WeekForecastList";
+import Wallpaper from "./components/Wallpaper";
 import { useGlobalContext } from "./context";
+import Loading from "./components/Loading";
 
 function App() {
-  const { dummyData, currentDayForecastIndex } = useGlobalContext();
+  const {
+    weatherData,
+    currentDayForecastIndex,
+    isLoading,
+  } = useGlobalContext();
   return (
     <main>
       <Search />
-      <CurrentWeather {...dummyData.current} {...dummyData.location} />
-      <DayForecastList
-        forecastHouers={
-          dummyData.forecast.forecastday[currentDayForecastIndex].hour
-        }
-      />
-      <WeekForecastList forecastWeek={dummyData.forecast.forecastday} />
+      {isLoading && <Loading />}
+      {weatherData !== undefined ? (
+        <>
+          <CurrentWeather {...weatherData.current} {...weatherData.location} />
+          <DayForecastList
+            forecastHouers={
+              weatherData.forecast.forecastday[currentDayForecastIndex].hour
+            }
+          />
+          <WeekForecastList forecastWeek={weatherData.forecast.forecastday} />
+        </>
+      ) : (
+        <Wallpaper />
+      )}
     </main>
   );
 }

@@ -1,10 +1,13 @@
 import React from "react";
+import { useGlobalContext } from "../context";
 
 const CurrentWeather = ({
   name,
   country,
   temp_c,
+  temp_f,
   feelslike_c,
+  feelslike_f,
   condition: { text: condition_text, icon },
   is_day,
   humidity,
@@ -20,6 +23,8 @@ const CurrentWeather = ({
     else return "Low";
   };
 
+  const { isCelsius } = useGlobalContext();
+
   return (
     <section
       className={`current-weather ${
@@ -32,8 +37,10 @@ const CurrentWeather = ({
           {name}, <span>{country}</span>
         </h2>
         <div className="current-weather__content__tempreture">
-          <h1>{temp_c}°C</h1>
-          <p>Feels Like: {feelslike_c}</p>
+          <h1>{isCelsius ? `${temp_c}°C` : `${temp_f}°F`}</h1>
+          <p>
+            Feels Like: {isCelsius ? `${feelslike_c}°C` : `${feelslike_f}°F`}
+          </p>
         </div>
         <div className="current-weather__content__condition">
           <h3>{condition_text}</h3>

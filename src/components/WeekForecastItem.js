@@ -8,9 +8,15 @@ const WeekForecastItem = ({
   condition: { text: conditionText, icon },
   maxtemp_c,
   mintemp_c,
+  maxtemp_f,
+  mintemp_f,
   index,
 }) => {
-  const { handleWeekItemClick, currentDayForecastIndex } = useGlobalContext();
+  const {
+    handleWeekItemClick,
+    currentDayForecastIndex,
+    isCelsius,
+  } = useGlobalContext();
 
   let oldDate = new Date();
   oldDate = parse(date, "yyyy-MM-dd", oldDate);
@@ -41,7 +47,8 @@ const WeekForecastItem = ({
         className="week-forecast-item__icon"
       />
       <h1 className="week-forecast-item__temp">
-        {maxtemp_c}°C <span>{mintemp_c}°C</span>
+        {isCelsius ? `${maxtemp_c}°C` : `${maxtemp_f}°F`}{" "}
+        <span>{isCelsius ? `${mintemp_c}°C` : `${mintemp_f}°F`}</span>
       </h1>
       <h4 className="week-forecast-item__condition">{conditionText}</h4>
     </button>

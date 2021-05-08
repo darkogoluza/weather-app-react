@@ -7,14 +7,97 @@
 }
 
 .search {
-  background-color: gray;
-  height: 50px;
+  background-color: #eeeeee;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 40px;
+  position: relative;
+}
+
+.search__container {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 5rem;
+  position: relative;
+}
+
+.search__container__icon {
+  width: 16px;
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  cursor: pointer;
+}
+
+.search__suggestions {
+  position: absolute;
+  max-width: 500px;
+  margin: 0 1rem;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: #eeeeee;
+  border-radius: 20px;
+  top: 110%;
+  overflow: hidden;
+}
+
+.search__suggestions__item {
+  list-style: none;
+  color: #393e46;
+  padding: 1rem;
+}
+
+.search__suggestions__item:first-child {
+  background-color: #cecece;
+}
+
+.search__switch-units {
+  position: absolute;
+  right: 2rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #00adb5;
+  border: 2px solid #00adb5;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.search__switch-units:hover {
+  border: none;
+  background-color: #00adb5;
+  color: #eeeeee;
+}
+
+#search {
+  width: 100%;
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+  background-color: transparent;
+  border: 2px solid #aad8d3;
+  color: #393e46;
+  outline: none;
 }
 
 .current-weather {
   width: 100%;
   height: 400px;
-  background-color: blue;
+  position: relative;
+  z-index: -1;
 }
 
 .current-weather__header {
@@ -89,10 +172,28 @@
   color: white;
 }
 
+@media only screen and (max-width: 680px) {
+  .current-weather {
+    height: 500px;
+  }
+  .current-weather__content__more-info {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+  }
+}
+
 .day-forecast {
   width: 100%;
-  height: 500px;
-  padding: 1rem;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 2rem;
   background-color: #eeeeee;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -112,6 +213,7 @@
 .day-forecast__date {
   color: #393e46;
   font-size: 1.5em;
+  margin-bottom: 2rem;
 }
 
 .day-forecast__list {
@@ -120,8 +222,8 @@
   gap: 1rem 0.5rem;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[12];
-      grid-template-columns: repeat(12, 1fr);
+  -ms-grid-columns: (minmax(100px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }
 
 .day-forecast-item {
@@ -215,7 +317,10 @@
 
 .week-forecast {
   width: 100%;
-  height: 250px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 2rem;
   background-color: #d4d4d4;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -234,12 +339,15 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2rem;
 }
 
 .week-forecast-item {
@@ -284,5 +392,31 @@
 
 .week-forecast-item__temp span {
   font-size: 0.75em;
+}
+
+.wallpaper {
+  height: calc(100vh - 40px);
+  width: 100%;
+  background: url("../assets/wallpaper.jpg") center center no-repeat;
+  background-size: cover;
+}
+
+.loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 3em;
+  color: #eeeeee;
 }
 /*# sourceMappingURL=main.css.map */
